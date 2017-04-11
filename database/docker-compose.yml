@@ -1,0 +1,29 @@
+version: '2'
+services:
+  mysql:
+    image: mysql
+    restart: always
+    command:
+      - --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "13306:3306"
+    volumes:
+      - ./data/mysql:/my/own/datadir
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - "37017:27017"
+    volumes:
+      - ./data/mongodb::/data/db
+  redis:
+    image: redis:alpine
+    restart: always
+    command:
+      - --appendonly yes
+    ports:
+      - "16379:6379"
+    volumes:
+      - ./data/redis:/data
