@@ -8,7 +8,7 @@ services:
     ports:
       - "13306:3306"
     volumes:
-      - ./data/mysql:/my/own/datadir
+      - ./mysql:/my/own/datadir
     environment:
       - MYSQL_ROOT_PASSWORD=123456
   mongodb:
@@ -17,7 +17,7 @@ services:
     ports:
       - "37017:27017"
     volumes:
-      - ./data/mongodb:/data/db
+      - ./mongodb:/data/db
   redis:
     image: redis:alpine
     restart: always
@@ -26,4 +26,4 @@ services:
     ports:
       - "16379:6379"
     volumes:
-      - ./data/redis:/data
+      - ./redis:/data
