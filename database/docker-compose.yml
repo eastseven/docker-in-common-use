@@ -4,7 +4,7 @@ services:
     image: mysql
     restart: always
     command:
-      - --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+      mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - "13306:3306"
     volumes:
@@ -17,7 +17,7 @@ services:
     ports:
       - "37017:27017"
     volumes:
-      - ./data/mongodb::/data/db
+      - ./data/mongodb:/data/db
   redis:
     image: redis:alpine
     restart: always
